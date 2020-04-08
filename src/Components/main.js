@@ -5,15 +5,17 @@ import addMeter from './addMeter';
 import systemSetting from './systemSetting';
 import alarms from './alarms';
 import gridTopology from './gridTopology';
+import MeterProps from './meterProfile/MeterProps'
 
 
 const Main  = () =>(
     <Switch>
-        <Route  path="/home" component ={home}/>
+        <Route  path="/home" component  ={home}/>
         <Route  path="/gridTopology" component={gridTopology} />
         <Route  path="/systemSetting" component={systemSetting} />
         <Route  path="/addMeter" component={addMeter} />
         <Route  path="/alarms" component={alarms} />
+        <Route path = "/MeterProps/:id" component ={MeterProps}/>
     </Switch>
 )
 export default Main ;
