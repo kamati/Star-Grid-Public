@@ -30,7 +30,12 @@ const MeterGrid = props => (
                                     </CardText>
                                     <CardActions border>
                                         <Button colored>
-                                            <Link to={{ pathname: `/MeterProps/${meterInfo.meterNumber}` }}>Meter Profile</Link>
+                                            <Link to={{ 
+                                                pathname: `/MeterProps/${meterInfo.meterNumber}`,
+                                                state:{meter:meterInfo.meterNumber}
+                                                
+                                                
+                                                }}>Meter Profile</Link>
                                         </Button>
                                     </CardActions>
                                     <CardMenu style={{ color: '#fff' }}>
