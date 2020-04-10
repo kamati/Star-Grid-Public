@@ -2,7 +2,7 @@ import React from 'react';
 import {Layout,Navigation,Content,Drawer,Header} from 'react-mdl';
 import {Link} from 'react-router-dom';
 import Main  from './Components/main';
-import Dashboard from './Components/Dashboard'
+import Dashboard from './Components/MeterOverView/Dashboard'
 import { Router, Route } from "react-router-dom";
 import './App.css';
 

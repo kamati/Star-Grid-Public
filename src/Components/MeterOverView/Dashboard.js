@@ -23,29 +23,19 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import TopIconsLayout from './TopIconsLayout'
+import PowerNow from './PowerNow'
+import Livechart from './Livechart'
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    
   },
-  toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
-  },
+ 
   toolbarIcon: {
     display: 'flex',
     alignItems: 'center',
@@ -53,13 +43,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '0 8px',
     ...theme.mixins.toolbar,
   },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
+  
   appBarShift: {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
@@ -100,15 +84,15 @@ const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: '100vh',
+    height: '80vh',
     overflow: 'auto',
   },
   container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
@@ -131,7 +115,7 @@ export default function Dashboard() {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      
       <Drawer
         variant="permanent"
         classes={{
@@ -143,7 +127,6 @@ export default function Dashboard() {
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>
-
           <IconButton onClick={handleDrawerOpen}>
             <ChevronRightIcon />
           </IconButton>
@@ -154,13 +137,14 @@ export default function Dashboard() {
         
       </Drawer>
       <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
+       
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
+            
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
+            <Grid item xs={12} >
+              <Paper elevation={0} >
+                <Livechart />
               </Paper>
             </Grid>
             {/* Recent Deposits */}
@@ -176,9 +160,7 @@ export default function Dashboard() {
               </Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
+        
         </Container>
       </main>
     </div>

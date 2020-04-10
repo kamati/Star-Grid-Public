@@ -6,11 +6,11 @@ import {Link} from 'react-router-dom'
 const MeterGrid = props => (
     <div>
         {props.meters ?(  <div>
-                <Grid container spacing = {10} style={styles.heroContainer}>
+                <Grid container spacing = {10} style={styles.heroContainer} justify="center">
                     {props.meters.map((meterInfo) => {
                         return (
                            
-                            <Card key={meterInfo.ID} shadow={1} style={{ width: '314px', margin: '12px', marginBottom: "30px" }}>
+                            <Card key={meterInfo.ID} shadow={1} style={{ width: '314px', margin: '12px', marginBottom: "30px" } }>
                                     <CardTitle style={{ color: '#fff', height: '236px', background: 'url(./Capture_burned.svg)  center / cover' }}>Welcome</CardTitle>
                                     <CardText>
                                         <DataTable style={{ width: '22px', margin: '2px', marginBottom: "10px" }}

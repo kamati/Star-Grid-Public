@@ -5,7 +5,7 @@ import addMeter from './addMeter';
 import systemSetting from './systemSetting';
 import alarms from './alarms';
 import gridTopology from './gridTopology';
-import MeterProps from './meterProfile/MeterProps'
+import MeterProps from './MeterOverView/MeterProps'
 
 
 const Main  = () =>(
