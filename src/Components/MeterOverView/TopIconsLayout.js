@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PowerNow from './PowerNow';
 import PowerDay from './PowerDay';
 import PowerMonth from './PowerMonth';
-import PowerYear from './PowerYear';
+import PowerYear from './WeeklyChart';
 import PowerTotal from './PowerTotal';
 import Grid from '@material-ui/core/Grid';
 
