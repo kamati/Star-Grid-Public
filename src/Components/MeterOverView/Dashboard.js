@@ -121,9 +121,7 @@ export default function Dashboard() {
 				<List>{mainListItems}</List>
 				<Divider />
 			</Drawer>
-			<main className={classes.content}>
-				<Container maxWidth='lg' className={classes.container} />
-			</main>
+			<main className={classes.content} />
 		</div>
 	);
 }
