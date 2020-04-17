@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import home from './home';
+import home from './Home';
 import addMeter from './addMeter';
 import systemSetting from './systemSetting';
 import alarms from './alarms';

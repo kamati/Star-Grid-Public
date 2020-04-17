@@ -5,6 +5,7 @@ import TransactionHistory from './TransactionHistory';
 import Controls from './Controls';
 import Orders from './Orders';
 import HistoricData from './HistoricData';
+import Networking from './Networking';
 
 const Routing = () => (
 	<Switch>
@@ -12,7 +13,7 @@ const Routing = () => (
 		<Route exact path='/MeterProps/TransactionHistory' component={TransactionHistory} />
 		<Route exact path='/MeterProps/Controls' component={Controls} />
 		<Route exact path='/MeterProps/DataOverview' component={DataOverview} />
-		<Route exact path='/MeterProps/Networking' component={Orders} />
+		<Route exact path='/MeterProps/Networking' component={Networking} />
 		<Route exact path='/MeterProps/Power' component={HistoricData} />
 	</Switch>
 );
