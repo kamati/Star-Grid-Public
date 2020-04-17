@@ -13,30 +13,31 @@ export const mainListItems = (
 			<ListItemIcon>
 				<DashboardIcon />
 			</ListItemIcon>
-			<ListItemText primary=' Data Overview' />
+			<Link to='/MeterProps/TransactionHistory'>Over View </Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
 				<BarChartIcon />
 			</ListItemIcon>
+			<Link to='/MeterProps/Power'>Power </Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
 				<BarChartIcon />
 			</ListItemIcon>
-			<ListItemText primary='Transaction history ' />
+			<Link to='/MeterProps/TransactionHistory'>Transactions </Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
 				<LayersIcon />
 			</ListItemIcon>
-			<ListItemText primary='Controls ' />
+			<Link to='/MeterProps/Controls'>Controls </Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
 				<LayersIcon />
 			</ListItemIcon>
-			<ListItemText primary='Integrations' />
+			<Link to='/MeterProps/Networking'>Networking </Link>
 		</ListItem>
 	</div>
 );
