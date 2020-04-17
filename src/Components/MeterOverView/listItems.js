@@ -19,7 +19,6 @@ export const mainListItems = (
 			<ListItemIcon>
 				<BarChartIcon />
 			</ListItemIcon>
-			<Link to={{ pathname: `/PropertiesManager/Livechart` }}>Historic Data</Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
