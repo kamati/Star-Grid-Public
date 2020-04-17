@@ -13,7 +13,7 @@ export const mainListItems = (
 			<ListItemIcon>
 				<DashboardIcon />
 			</ListItemIcon>
-			<Link to='/MeterProps/TransactionHistory'>Over View </Link>
+			<Link to='/MeterProps/DataOverview'>Overview </Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
