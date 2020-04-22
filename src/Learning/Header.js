@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 export class Header extends Component {
 	handleChange(e) {
-		const Name = e.target.value;
-		this.props.changeNames();
+		const MetersRequest = { Location: e.target.value };
 	}
 	render() {
 		return (
