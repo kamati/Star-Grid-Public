@@ -2,13 +2,14 @@ import React, { Component, useState } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import * as parkData from '../Data/skateboard-parks.json';
 import mapStyles from '../Data/mapStyles';
+import GeolocationData from './GeolocationData';
 
 function Map() {
-	const [ selectedPark, setSelectedPark ] = useState(null);
+	const [ selectedPark, setSelectedPark, mGeolocation ] = useState(null);
 	return (
 		<GoogleMap
 			defaultZoom={13}
-			defaultCenter={{ lat: 40.748817, lng: -73.985428 }}
+			defaultCenter={{ lat: -22.560282, lng: 17.069457 }}
 			defaultOptions={{
 				scrollwheel: false,
 				zoomControl: true,
@@ -65,34 +66,7 @@ function Map() {
 					}
 				]
 			}}>
-			{parkData.features.map((park) => (
-				<Marker
-					keys={park.properties.PARK_ID}
-					position={{
-						lat: park.geometry.coordinates[1],
-						lng: park.geometry.coordinates[0]
-					}}
-					onClick={() => {
-						setSelectedPark(park);
-					}}
-					icon={{
-						url: './Capture_burned.svg',
-						scaledSize: new window.google.maps.Size(45, 45)
-					}}
-				/>
-			))}
-			{selectedPark && (
-				<InfoWindow
-					position={{
-						lat: selectedPark.geometry.coordinates[1],
-						lng: selectedPark.geometry.coordinates[0]
-					}}>
-					<div>
-						<h2>{selectedPark.properties.NAME}</h2>
-						<p>{selectedPark.properties.DESCRIPTIO}</p>
-					</div>
-				</InfoWindow>
-			)}
+			<GeolocationData />
 		</GoogleMap>
 	);
 }

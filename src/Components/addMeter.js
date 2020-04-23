@@ -14,7 +14,7 @@ export class addMeter extends Component {
 		const recipeName = e.target.elements.meterName.value;
 		var meterRequest = {
 			key: 'StartGRID2020',
-			SQLQuery: `SELECT * FROM LoadData WHERE MeterNumber = ${recipeName}`
+			SQLQuery: `SELECT * FROM LoadData `
 		};
 		console.log(JSON.stringify(meterRequest));
 		const request = new Request(`https://cors-anywhere.herokuapp.com/https://stargridx.net/getMeters.php`, {
