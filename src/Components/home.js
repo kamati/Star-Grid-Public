@@ -3,6 +3,7 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, Polyline } 
 import * as parkData from '../Data/skateboard-parks.json';
 import mapStyles from '../Data/mapStyles';
 import GeolocationData from './GeolocationData';
+import GridTopology from './GridTopology';
 
 const useFetch = (url) => {
 	const [ meterData, setMeterdata ] = useState(null);
@@ -128,7 +129,7 @@ function Map() {
 				))}
 			{selectedMeter && (
 				<InfoWindow position={{ lat: parseFloat(selectedMeter.Longitude), lng: parseFloat(selectedMeter.Lat) }}>
-					<h1>{selectedMeter.UserName}</h1>
+					<GridTopology />
 				</InfoWindow>
 			)}
 		</GoogleMap>
