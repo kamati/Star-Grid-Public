@@ -1,14 +1,46 @@
-import React, { Component, useState } from 'react';
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
+import React, { Component, useState, useEffect } from 'react';
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, Polyline } from 'react-google-maps';
 import * as parkData from '../Data/skateboard-parks.json';
 import mapStyles from '../Data/mapStyles';
 import GeolocationData from './GeolocationData';
 
+const useFetch = (url) => {
+	const [ meterData, setMeterdata ] = useState(null);
+	console.log('data.Server_response');
+	useEffect(() => {
+		async function fetchData() {
+			var resquestType = {
+				key: 'StartGRID2020',
+				SQLQuery: `SELECT * FROM  MeterLocation`
+			};
+			const request = new Request(
+				`https://cors-anywhere.herokuapp.com/https://stargridx.net/MeterGeolocation.php`,
+				{
+					method: 'POST',
+					headers: { 'Content-type': 'application/json' },
+					body: JSON.stringify(resquestType)
+				}
+			);
+			const api_call = await fetch(request);
+			const data = await api_call.json();
+			setMeterdata(data.Server_response);
+
+			console.log(data.Server_response);
+		}
+		fetchData();
+	}, []);
+
+	return { meterData };
+};
+
 function Map() {
-	const [ selectedPark, setSelectedPark, mGeolocation ] = useState(null);
+	const [ selectedMeter, setSelectedMeter ] = useState(null);
+	const url = 'https://cors-anywhere.herokuapp.com/https://stargridx.net/MeterGeolocation.php';
+	const { meterData } = useFetch(url);
+
 	return (
 		<GoogleMap
-			defaultZoom={13}
+			defaultZoom={17}
 			defaultCenter={{ lat: -22.560282, lng: 17.069457 }}
 			defaultOptions={{
 				scrollwheel: false,
@@ -66,7 +98,39 @@ function Map() {
 					}
 				]
 			}}>
-			<GeolocationData />
+			{meterData != null &&
+				meterData.map((meter) => (
+					<div>
+						<Marker
+							key={meter.lng}
+							position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
+							onClick={() => {
+								setSelectedMeter(meter);
+							}}
+							icon={{
+								url: './Capture_burned.svg',
+								scaledSize: new window.google.maps.Size(25, 25)
+							}}
+						/>
+						<Polyline
+							path={[
+								{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) },
+								{ lat: parseFloat(meter.pLat), lng: parseFloat(meter.pLng) }
+							]}
+							geodesic={true}
+							options={{
+								strokeColor: '#ff2527',
+								strokeOpacity: 0.75,
+								strokeWeight: 2
+							}}
+						/>
+					</div>
+				))}
+			{selectedMeter && (
+				<InfoWindow position={{ lat: parseFloat(selectedMeter.Longitude), lng: parseFloat(selectedMeter.Lat) }}>
+					<h1>{selectedMeter.UserName}</h1>
+				</InfoWindow>
+			)}
 		</GoogleMap>
 	);
 }
