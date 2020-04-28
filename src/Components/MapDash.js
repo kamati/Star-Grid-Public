@@ -9,9 +9,9 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { mainListItems } from './listItems';
-import Home from '../Home';
-import Routing from './PropertiesManager/Routing';
+import { mainListItems, SecondaryListItems } from './listItems';
+import MapRouting from './MapRouting';
+import Main from './main';
 
 const drawerWidth = 240;
 
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function Dashboard() {
+export default function MapDash() {
 	const classes = useStyles();
 	const [ open, setOpen ] = React.useState(true);
 	const handleDrawerOpen = () => {
@@ -116,12 +116,11 @@ export default function Dashboard() {
 				<Divider />
 				<List>{mainListItems}</List>
 				<Divider />
-				<Home />
+				<Divider />
+				<List>{SecondaryListItems}</List>
 			</Drawer>
 			<main className={classes.content}>
-				<Container maxWidth='lg' className={classes.container}>
-					<Routing />
-				</Container>
+				<MapRouting />
 			</main>
 		</div>
 	);

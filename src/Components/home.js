@@ -102,17 +102,6 @@ function Map() {
 			{meterData != null &&
 				meterData.map((meter) => (
 					<div>
-						<Marker
-							key={meter.lng}
-							position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
-							onClick={() => {
-								setSelectedMeter(meter);
-							}}
-							icon={{
-								url: './Capture_burned.svg',
-								scaledSize: new window.google.maps.Size(25, 25)
-							}}
-						/>
 						<Polyline
 							path={[
 								{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) },
@@ -123,6 +112,17 @@ function Map() {
 								strokeColor: '#ff2527',
 								strokeOpacity: 0.75,
 								strokeWeight: 2
+							}}
+						/>
+						<Marker
+							key={meter.lng}
+							position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
+							onClick={() => {
+								setSelectedMeter(meter);
+							}}
+							icon={{
+								url: './Capture_burned.svg',
+								scaledSize: new window.google.maps.Size(35, 35)
 							}}
 						/>
 					</div>
