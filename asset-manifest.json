@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Star-Grid-Public/static/css/main.e1521781.chunk.css",
+    "main.js": "/Star-Grid-Public/static/js/main.60484d49.chunk.js",
+    "main.js.map": "/Star-Grid-Public/static/js/main.60484d49.chunk.js.map",
+    "runtime-main.js": "/Star-Grid-Public/static/js/runtime-main.26d7b669.js",
+    "runtime-main.js.map": "/Star-Grid-Public/static/js/runtime-main.26d7b669.js.map",
+    "static/css/2.20155695.chunk.css": "/Star-Grid-Public/static/css/2.20155695.chunk.css",
+    "static/js/2.fac4536a.chunk.js": "/Star-Grid-Public/static/js/2.fac4536a.chunk.js",
+    "static/js/2.fac4536a.chunk.js.map": "/Star-Grid-Public/static/js/2.fac4536a.chunk.js.map",
+    "index.html": "/Star-Grid-Public/index.html",
+    "precache-manifest.b3863bf0416d1c06eb434bd99608a013.js": "/Star-Grid-Public/precache-manifest.b3863bf0416d1c06eb434bd99608a013.js",
+    "service-worker.js": "/Star-Grid-Public/service-worker.js",
+    "static/css/2.20155695.chunk.css.map": "/Star-Grid-Public/static/css/2.20155695.chunk.css.map",
+    "static/css/main.e1521781.chunk.css.map": "/Star-Grid-Public/static/css/main.e1521781.chunk.css.map",
+    "static/js/2.fac4536a.chunk.js.LICENSE.txt": "/Star-Grid-Public/static/js/2.fac4536a.chunk.js.LICENSE.txt",
+    "static/media/Capture_burned.jpg": "/Star-Grid-Public/static/media/Capture_burned.b21416c8.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.26d7b669.js",
+    "static/css/2.20155695.chunk.css",
+    "static/js/2.fac4536a.chunk.js",
+    "static/css/main.e1521781.chunk.css",
+    "static/js/main.60484d49.chunk.js"
+  ]
+}
