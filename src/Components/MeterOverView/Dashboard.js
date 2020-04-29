@@ -120,7 +120,9 @@ export default function Dashboard() {
 			</Drawer>
 			<main className={classes.content}>
 				<Container maxWidth='lg' className={classes.container}>
-					<Routing />
+					<Grid container spacing={3}>
+						<Routing />
+					</Grid>
 				</Container>
 			</main>
 		</div>
