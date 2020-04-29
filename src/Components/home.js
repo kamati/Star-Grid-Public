@@ -3,7 +3,7 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, Polyline } 
 import * as parkData from '../Data/skateboard-parks.json';
 import mapStyles from '../Data/mapStyles';
 import GeolocationData from './GeolocationData';
-import GridTopology from './GridTopology';
+import GridTopology from './gridTopology';
 
 const useFetch = (url) => {
 	const [ meterData, setMeterdata ] = useState(null);
