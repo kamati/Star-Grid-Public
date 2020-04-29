@@ -3,9 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 import MapDash from './MapDash';
 import systemSetting from './systemSetting';
 import alarms from './alarms';
-import GridTopology from './GridTopology';
+import GridTopology from './gridTopology';
 import MeterProps from './MeterOverView/MeterProps';
-import Home from './Home';
+import Home from './home';
 
 const Main = () => (
 	<Switch>
