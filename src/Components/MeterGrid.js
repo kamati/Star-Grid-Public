@@ -32,43 +32,7 @@ const MeterGrid = (props) => (
 									}}>
 									Welcome
 								</CardTitle>
-								<CardText>
-									<DataTable
-										style={{ width: '22px', margin: '2px', marginBottom: '10px' }}
-										selectable
-										shadow={0}
-										rowKeyColumn='id'
-										rows={[
-											{
-												id: 1001,
-												Parameter: 'Voltage',
-												Value: meterInfo.VoltageRMS,
-												Time: '12:00'
-											},
-											{
-												id: 1002,
-												Parameter: 'Current',
-												Value: meterInfo.CurrentRMS,
-												Time: '12:00'
-											},
-											{
-												id: 1003,
-												Parameter: 'Active Power',
-												Value: meterInfo.ActivePower,
-												Time: '12:00'
-											}
-										]}>
-										<TableHeader name='Parameter' tooltip='System prameterName'>
-											Parameter
-										</TableHeader>
-										<TableHeader numeric name='Value' tooltip='value of parameter'>
-											Value{' '}
-										</TableHeader>
-										<TableHeader numeric name='Time' tooltip='time of recived'>
-											Time
-										</TableHeader>
-									</DataTable>
-								</CardText>
+								<CardText />
 								<CardActions border>
 									<Button colored>
 										<Link

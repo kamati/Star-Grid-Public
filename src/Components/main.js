@@ -1,21 +1,20 @@
 import React from 'react';
-import { Switch,Route } from 'react-router-dom';
-import home from './home';
-import addMeter from './addMeter';
+import { Switch, Route } from 'react-router-dom';
+import MapDash from './MapDash';
 import systemSetting from './systemSetting';
 import alarms from './alarms';
-import gridTopology from './gridTopology';
-import MeterProps from './MeterOverView/MeterProps'
+import GridTopology from './GridTopology';
+import MeterProps from './MeterOverView/MeterProps';
+import Home from './Home';
 
-
-const Main  = () =>(
-    <Switch>
-        <Route  path="/home" component  ={home}/>
-        <Route  path="/gridTopology" component={gridTopology} />
-        <Route  path="/systemSetting" component={systemSetting} />
-        <Route  path="/addMeter" component={addMeter} />
-        <Route  path="/alarms" component={alarms} />
-        <Route path = "/MeterProps/:id" component ={MeterProps}/>
-    </Switch>
-)
-export default Main ;
+const Main = () => (
+	<Switch>
+		<Route exact path='/Home' component={Home} />
+		<Route exact path='/gridTopology' component={GridTopology} />
+		<Route exact path='/systemSetting' component={systemSetting} />
+		<Route exact path='/alarms' component={alarms} />
+		<Route exact path='/MeterProps/:id' component={MeterProps} />
+		<Route exact path='/MapDash/:id' component={MapDash} />
+	</Switch>
+);
+export default Main;

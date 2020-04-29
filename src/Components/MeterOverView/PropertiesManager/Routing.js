@@ -1,18 +1,20 @@
 import React from 'react';
-import { Switch,Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import DataOverview from './DataOverview';
-import HistoricData from './HistoricData';
 import TransactionHistory from './TransactionHistory';
 import Controls from './Controls';
 import Orders from './Orders';
+import HistoricData from './HistoricData';
+import Networking from './Networking';
 
-const Routing  = () =>(
-    <Switch>
-        <Route  path="/HistoricData" component  ={HistoricData}/>
-        <Route  path="/TransactionHistory" component={TransactionHistory} />
-        <Route  path="/Controls" component={Controls} />
-        <Route  path="/DataOverview" component={DataOverview} />
-         <Route  path="/Orders" component={Orders} />
-    </Switch>
-)
-export default Routing ;
+const Routing = () => (
+	<Switch>
+		<Route exact path='/MeterProps/' component={Orders} />
+		<Route exact path='/MeterProps/TransactionHistory' component={TransactionHistory} />
+		<Route exact path='/MeterProps/Controls' component={Controls} />
+		<Route exact path='/MeterProps/DataOverview' component={DataOverview} />
+		<Route exact path='/MeterProps/Networking' component={Networking} />
+		<Route exact path='/MeterProps/Power' component={HistoricData} />
+	</Switch>
+);
+export default Routing;

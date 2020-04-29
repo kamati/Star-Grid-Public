@@ -13,31 +13,48 @@ export const mainListItems = (
 			<ListItemIcon>
 				<DashboardIcon />
 			</ListItemIcon>
-			<Link to='/MeterProps/DataOverview'>Overview </Link>
+			<Link to='/MapDash/Home'>Map</Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
 				<BarChartIcon />
 			</ListItemIcon>
-			<Link to='/MeterProps/Power'>Power </Link>
+			<Link to='/MapDash/Grid'>Grid </Link>
+		</ListItem>
+	</div>
+);
+
+export const SecondaryListItems = (
+	<div>
+		<ListItem button>
+			<ListItemIcon>
+				<DashboardIcon />
+			</ListItemIcon>
+			<Link to='/MapDash/Home'>Water Meters</Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
 				<BarChartIcon />
 			</ListItemIcon>
-			<Link to='/MeterProps/TransactionHistory'>Transactions </Link>
+			<Link to='/MapDash/Grid'>Electricity Meters </Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
-				<LayersIcon />
+				<BarChartIcon />
 			</ListItemIcon>
-			<Link to='/MeterProps/Controls'>Controls </Link>
+			<Link to='/MapDash/Grid'>Traffic Controllers </Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
-				<LayersIcon />
+				<BarChartIcon />
 			</ListItemIcon>
-			<Link to='/MeterProps/Networking'>Networking </Link>
+			<Link to='/MapDash/Grid'>Power Stations </Link>
+		</ListItem>
+		<ListItem button>
+			<ListItemIcon>
+				<BarChartIcon />
+			</ListItemIcon>
+			<Link to='/MapDash/Grid'>Substations </Link>
 		</ListItem>
 	</div>
 );
