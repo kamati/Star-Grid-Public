@@ -2,7 +2,7 @@
   "name": "gridx_react",
   "version": "0.1.0",
   "private": true,
-  "homepage": " https://kamati.github.io/Star-Grid-Public/",
+  "homepage": " .",
   "dependencies": {
     "@coreui/coreui": "^3.0.0",
     "@coreui/coreui-plugin-chartjs-custom-tooltips": "^1.3.1",
