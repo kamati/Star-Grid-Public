@@ -15,7 +15,7 @@ function App() {
 						<Link to='/MapDash/2'>Home </Link>
 						<Link to='/gridTopology'>Grid Topology</Link>
 						<Link to='/alarms'>Alarms</Link>
-						<Link to='/Home'>New Meter</Link>
+						<Link to='/FormMeter'>New Meter</Link>
 						<Link to='/systemSetting'>System Settings</Link>
 					</Navigation>
 				</Header>
