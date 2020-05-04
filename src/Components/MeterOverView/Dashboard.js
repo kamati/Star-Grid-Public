@@ -13,7 +13,7 @@ import { mainListItems } from './listItems';
 import Home from '../home';
 import Routing from './PropertiesManager/Routing';
 
-const drawerWidth = 240;
+const drawerWidth = 40;
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
 		paddingBottom: theme.spacing(1)
 	},
 	paper: {
-		padding: theme.spacing(4),
+		padding: theme.spacing(),
 		display: 'flex',
 		overflow: 'auto',
 		flexDirection: 'column'
@@ -116,11 +116,11 @@ export default function Dashboard() {
 				<Divider />
 				<List>{mainListItems}</List>
 				<Divider />
-				<Home />
 			</Drawer>
+
 			<main className={classes.content}>
-				<Container maxWidth='lg' className={classes.container}>
-					<Grid container spacing={3}>
+				<Container className={classes.container}>
+					<Grid container spacing={4}>
 						<Routing />
 					</Grid>
 				</Container>

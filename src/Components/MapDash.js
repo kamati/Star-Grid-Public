@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		display: 'flex'
 	},
+	root2: {
+		padding: theme.spacing(4)
+	},
 
 	toolbarIcon: {
 		display: 'flex',
@@ -119,8 +122,12 @@ export default function MapDash() {
 				<Divider />
 				<List>{SecondaryListItems}</List>
 			</Drawer>
-			<main className={classes.content}>
-				<MapRouting />
+			<main>
+				<Container maxWidth='lg' className={classes.root2}>
+					<Grid container spacing={3}>
+						<MapRouting />
+					</Grid>
+				</Container>
 			</main>
 		</div>
 	);

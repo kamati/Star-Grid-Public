@@ -19,8 +19,7 @@ function App() {
 						<Link to='/systemSetting'>System Settings</Link>
 					</Navigation>
 				</Header>
-				<Content shadow={15} style={{ margin: '12px', marginBottom: '30px' }}>
-					<div className='page-content' />
+				<Content>
 					<Main />
 				</Content>
 			</Layout>

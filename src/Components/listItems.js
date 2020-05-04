@@ -13,6 +13,12 @@ export const mainListItems = (
 			<ListItemIcon>
 				<DashboardIcon />
 			</ListItemIcon>
+			<Link to='/MapDash/Dashboard'>Dashboard</Link>
+		</ListItem>
+		<ListItem button>
+			<ListItemIcon>
+				<DashboardIcon />
+			</ListItemIcon>
 			<Link to='/MapDash/Home'>Map</Link>
 		</ListItem>
 		<ListItem button>
