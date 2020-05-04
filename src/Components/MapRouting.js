@@ -8,7 +8,7 @@ import Dashboard from './Dashboard/Dashboard';
 
 const MapRouting = () => (
 	<Switch>
-		<Route exact path='/MapDash/' component={Home} />
+		<Route exact path='/MapDash/2' component={Dashboard} />
 		<Route exact path='/MapDash/Grid' component={MainTable} />
 		<Route exact path='/MapDash/Home' component={addMeter} />
 		<Route exact path='/MapDash/Dashboard' component={Dashboard} />

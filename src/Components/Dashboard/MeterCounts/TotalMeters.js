@@ -44,7 +44,7 @@ const TotalMeters = (props) => {
 						<Typography className={classes.title} color='textSecondary' gutterBottom variant='body2'>
 							Total Meters
 						</Typography>
-						<Typography variant='h3'>300 000</Typography>
+						<Typography variant='h4'>300 000</Typography>
 					</Grid>
 					<Grid item>
 						<Avatar className={classes.avatar}>

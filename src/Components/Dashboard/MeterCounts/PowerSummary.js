@@ -44,7 +44,7 @@ const PowerSummary = (props) => {
 						<Typography className={classes.title} color='textSecondary' gutterBottom variant='body2'>
 							Inactive Meters
 						</Typography>
-						<Typography variant='h5'>75 </Typography>
+						<Typography variant='h4'>75 </Typography>
 					</Grid>
 					<Grid item>
 						<Avatar className={classes.avatar}>

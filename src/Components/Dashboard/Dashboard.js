@@ -48,13 +48,13 @@ export default function Dashboard() {
 		<div>
 			<Grid container spacing={1}>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<PowerSummary />
+					<TotalMeters />
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
 					<ActiveMeters />
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<TotalSystemLoad />
+					<PowerSummary />
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
 					<TotalSystemLoad />
