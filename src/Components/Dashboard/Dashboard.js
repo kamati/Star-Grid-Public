@@ -57,7 +57,7 @@ export default function Dashboard() {
 					<PowerSummary />
 				</Grid>
 
-				<Grid item lg={8} md={12} xl={9} xs={12}>
+				<Grid item lg={12} md={12} xl={12} xs={12}>
 					<Paper className={fixedHeightPaper}>
 						<Home />
 					</Paper>

@@ -122,8 +122,8 @@ export default function MapDash() {
 				<Divider />
 				<List>{SecondaryListItems}</List>
 			</Drawer>
-			<main>
-				<Container maxWidth='lg' className={classes.root2}>
+			<main className={classes.root2}>
+				<Container maxWidth='lg'>
 					<Grid container spacing={3}>
 						<MapRouting />
 					</Grid>

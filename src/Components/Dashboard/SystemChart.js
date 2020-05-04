@@ -162,8 +162,8 @@ export class SystemChart extends Component {
 							<CardBody>
 								<Row>
 									<Col sm='5'>
-										<CardTitle className='mb-0'>Traffic</CardTitle>
-										<div className='small text-muted'>November 2015</div>
+										<CardTitle className='mb-0'>Total System Load </CardTitle>
+										<div className='small text-muted'>May 2020</div>
 									</Col>
 									<Col sm='7' className='d-none d-sm-inline-block'>
 										<Button color='primary' className='float-right'>
@@ -185,28 +185,28 @@ export class SystemChart extends Component {
 							<CardFooter>
 								<Row className='text-center'>
 									<Col sm={12} md className='mb-sm-2 mb-0'>
-										<div className='text-muted'>Visits</div>
-										<strong>29.703 Users (40%)</strong>
+										<div className='text-muted'> Maximum</div>
+										<strong>29.703 KWH</strong>
 										<Progress className='progress-xs mt-2' color='success' value='40' />
 									</Col>
 									<Col sm={12} md className='mb-sm-2 mb-0 d-md-down-none'>
-										<div className='text-muted'>Unique</div>
-										<strong>24.093 Users (20%)</strong>
+										<div className='text-muted'>Minimum</div>
+										<strong>24.093 KWH</strong>
 										<Progress className='progress-xs mt-2' color='info' value='20' />
 									</Col>
 									<Col sm={12} md className='mb-sm-2 mb-0'>
-										<div className='text-muted'>Pageviews</div>
-										<strong>78.706 Views (60%)</strong>
+										<div className='text-muted'>Average</div>
+										<strong>78.706 KWH</strong>
 										<Progress className='progress-xs mt-2' color='warning' value='60' />
 									</Col>
 									<Col sm={12} md className='mb-sm-2 mb-0'>
-										<div className='text-muted'>New Users</div>
-										<strong>22.123 Users (80%)</strong>
+										<div className='text-muted'> last Month</div>
+										<strong>22.123 KWH</strong>
 										<Progress className='progress-xs mt-2' color='danger' value='80' />
 									</Col>
 									<Col sm={12} md className='mb-sm-2 mb-0 d-md-down-none'>
-										<div className='text-muted'>Bounce Rate</div>
-										<strong>Average Rate (40.15%)</strong>
+										<div className='text-muted'>Current</div>
+										<strong>65.132 KWH</strong>
 										<Progress className='progress-xs mt-2' color='primary' value='40' />
 									</Col>
 								</Row>
