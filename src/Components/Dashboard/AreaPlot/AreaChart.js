@@ -33,7 +33,7 @@ const AreaChart = (props) => {
 						Last 7 days <ArrowDropDownIcon />
 					</Button>
 				}
-				title='Area Power Cunsuption'
+				title='Area Power Consuption'
 			/>
 			<Divider />
 			<CardContent>
