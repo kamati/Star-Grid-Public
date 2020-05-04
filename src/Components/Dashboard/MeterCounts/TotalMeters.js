@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-const PowerSummary = (props) => {
+const TotalMeters = (props) => {
 	const { className, ...rest } = props;
 
 	const classes = useStyles();
@@ -42,9 +42,9 @@ const PowerSummary = (props) => {
 				<Grid container justify='space-between'>
 					<Grid item>
 						<Typography className={classes.title} color='textSecondary' gutterBottom variant='body2'>
-							TASKS PROGRESS
+							Total Meters
 						</Typography>
-						<Typography variant='h3'>75.5%</Typography>
+						<Typography variant='h3'>300 000</Typography>
 					</Grid>
 					<Grid item>
 						<Avatar className={classes.avatar}>
@@ -58,8 +58,8 @@ const PowerSummary = (props) => {
 	);
 };
 
-PowerSummary.propTypes = {
+TotalMeters.propTypes = {
 	className: PropTypes.string
 };
 
-export default PowerSummary;
+export default TotalMeters;

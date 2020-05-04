@@ -199,11 +199,7 @@ export class SystemChart extends Component {
 										<strong>78.706 KWH</strong>
 										<Progress className='progress-xs mt-2' color='warning' value='60' />
 									</Col>
-									<Col sm={12} md className='mb-sm-2 mb-0'>
-										<div className='text-muted'> last Month</div>
-										<strong>22.123 KWH</strong>
-										<Progress className='progress-xs mt-2' color='danger' value='80' />
-									</Col>
+
 									<Col sm={12} md className='mb-sm-2 mb-0 d-md-down-none'>
 										<div className='text-muted'>Current</div>
 										<strong>65.132 KWH</strong>

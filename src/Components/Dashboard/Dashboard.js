@@ -7,7 +7,10 @@ import Home from '../home';
 import SystemChart from './SystemChart';
 import Paper from '@material-ui/core/Paper';
 import clsx from 'clsx';
-import PowerSummary from './PowerSummary';
+import PowerSummary from './MeterCounts/PowerSummary';
+import ActiveMeters from './MeterCounts/ActiveMeters';
+import TotalMeters from './MeterCounts/TotalMeters';
+import TotalSystemLoad from './MeterCounts/TotalSystemLoad';
 import AreaCharts from './AreaPlot/AreaChart';
 
 const useStyles = makeStyles((theme) => ({
@@ -48,13 +51,13 @@ export default function Dashboard() {
 					<PowerSummary />
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<PowerSummary />
+					<ActiveMeters />
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<PowerSummary />
+					<TotalSystemLoad />
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<PowerSummary />
+					<TotalSystemLoad />
 				</Grid>
 
 				<Grid item lg={12} md={12} xl={12} xs={12}>
