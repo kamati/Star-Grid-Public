@@ -7,11 +7,12 @@ import GridTopology from './gridTopology';
 import MeterProps from './MeterOverView/MeterProps';
 import Home from './home';
 import FormMeter from './FormMeter';
+import HomeMaps from './Dashboard/HomeMaps';
 
 const Main = () => (
 	<Switch>
-		<Route exact path='/' component={MapDash} />
-		<Route exact path='/gridTopology' component={GridTopology} />
+		<Route exact path='/' component={Home} />
+		<Route exact path='/gridTopology' component={HomeMaps} />
 		<Route exact path='/systemSetting' component={systemSetting} />
 		<Route exact path='/alarms' component={alarms} />
 		<Route exact path='/FormMeter' component={FormMeter} />

@@ -19,7 +19,7 @@ export const mainListItems = (
 			<ListItemIcon>
 				<DashboardIcon />
 			</ListItemIcon>
-			<Link to='/MapDash/Home'>Map</Link>
+			<Link to='/MapDash/Home2'>Map</Link>
 		</ListItem>
 		<ListItem button>
 			<ListItemIcon>
