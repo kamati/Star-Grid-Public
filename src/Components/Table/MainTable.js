@@ -40,12 +40,12 @@ export class MainTable extends Component {
 						{ title: 'Region', field: 'Region' },
 						{ title: 'City', field: 'City' },
 						{ title: 'Constituency ', field: 'Constituency' },
-						{ title: 'StreetName', field: 'StreetName' },
+						{ title: 'Street Name', field: 'StreetName' },
 						{ title: 'ErfNumber ', field: 'ErfNumber' },
 						{ title: 'Meter  Number ', field: 'MeterNumber' },
 						{ title: 'Phone Number', field: 'PhoneNumber' },
-						{ title: 'User Category', field: 'User Category' },
-						{ title: 'PhoneNumber', field: 'Phone Number' },
+						{ title: 'User Category', field: 'UserCategory' },
+						{ title: 'PhoneNumber', field: 'PhoneNumber' },
 
 						{ title: 'Registration Date', field: 'RegistrationDate', type: 'numeric' }
 					]}
