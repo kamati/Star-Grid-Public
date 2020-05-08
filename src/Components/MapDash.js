@@ -6,12 +6,12 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { mainListItems, SecondaryListItems } from './listItems';
 import MapRouting from './MapRouting';
-import Main from './main';
+
+import Home from './Maps/home';
 
 const drawerWidth = 240;
 
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex'
 	},
 	root2: {
-		padding: theme.spacing(4)
+		padding: theme.spacing(1)
 	},
 
 	toolbarIcon: {
@@ -70,8 +70,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	appBarSpacer: theme.mixins.toolbar,
 	content: {
-		flexGrow: 1,
-		height: '80vh',
+		flexGrow: 3,
+		height: '90vh',
 		overflow: 'auto'
 	},
 	container: {
@@ -122,11 +122,9 @@ export default function MapDash() {
 				<Divider />
 				<List>{SecondaryListItems}</List>
 			</Drawer>
-			<main className={classes.root2}>
-				<Container maxWidth='lg'>
-					<Grid container spacing={3}>
-						<MapRouting />
-					</Grid>
+			<main className={classes.content}>
+				<Container maxWidth='lg' className={classes.container}>
+					<MapRouting />
 				</Container>
 			</main>
 		</div>

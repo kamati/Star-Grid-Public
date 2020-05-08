@@ -5,7 +5,7 @@ import systemSetting from './systemSetting';
 import alarms from './alarms';
 import GridTopology from './gridTopology';
 import MeterProps from './MeterOverView/MeterProps';
-import Home from './home';
+import Home from './Maps/home';
 import FormMeter from './FormMeter';
 import HomeMaps from './Dashboard/HomeMaps';
 

@@ -3,7 +3,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
-import Home from '../home';
+import Home from '../Maps/home';
 import SystemChart from './SystemChart';
 import Paper from '@material-ui/core/Paper';
 import clsx from 'clsx';

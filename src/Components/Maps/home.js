@@ -1,9 +1,10 @@
 import React, { Component, useState, useEffect } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, Polyline } from 'react-google-maps';
-import * as parkData from '../Data/skateboard-parks.json';
-import mapStyles from '../Data/mapStyles';
-import GeolocationData from './GeolocationData';
-import GridTopology from './gridTopology';
+import * as parkData from '../../Data/skateboard-parks.json';
+import mapStyles from '../../Data/mapStyles';
+import GeolocationData from '../GeolocationData';
+import GridTopology from '../gridTopology';
+import MapCard from './MapCard';
 
 const useFetch = (url) => {
 	const [ meterData, setMeterdata ] = useState(null);
@@ -44,7 +45,7 @@ function Map() {
 			defaultZoom={17}
 			defaultCenter={{ lat: -22.560282, lng: 17.069457 }}
 			defaultOptions={{
-				scrollwheel: false,
+				scrollwheel: true,
 				zoomControl: true,
 				styles: [
 					{
@@ -129,7 +130,7 @@ function Map() {
 				))}
 			{selectedMeter && (
 				<InfoWindow position={{ lat: parseFloat(selectedMeter.Longitude), lng: parseFloat(selectedMeter.Lat) }}>
-					<GridTopology />
+					<MapCard />
 				</InfoWindow>
 			)}
 		</GoogleMap>
@@ -146,8 +147,8 @@ export class Home extends Component {
 						'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
 					}
 					loadingElement={<div style={{ height: `100%` }} />}
-					containerElement={<div style={{ height: `100vh` }} />}
-					mapElement={<div style={{ height: `100%` }} />}
+					containerElement={<div style={{ height: `85vh` }} />}
+					mapElement={<div style={{ height: `85vh` }} />}
 				/>
 			</div>
 		);

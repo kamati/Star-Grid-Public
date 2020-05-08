@@ -1,15 +1,42 @@
 import React from 'react';
 import MaterialTable from 'material-table';
-import { Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
+import Grid from '@material-ui/core/Grid';
+import UserToolbar from './UserToolbar';
 
 import { Component } from 'react';
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		padding: theme.spacing(4)
+	},
+	content: {
+		marginTop: theme.spacing(2)
+	}
+}));
 
 export class MainTable extends Component {
 	state = {
 		meterData: []
 	};
 	stateData = {
-		meterData: []
+		meterData: [],
+		ColumData: [
+			{ title: 'ID', field: 'ID' },
+			{ title: 'Surname', field: 'Surname' },
+			{ title: 'Name', field: 'Name' },
+			{ title: 'Region', field: 'Region' },
+			{ title: 'City', field: 'City' },
+			{ title: 'Constituency ', field: 'Constituency' },
+			{ title: 'Street Name', field: 'StreetName' },
+			{ title: 'ErfNumber ', field: 'ErfNumber' },
+			{ title: 'Meter  Number ', field: 'MeterNumber' },
+			{ title: 'Phone Number', field: 'PhoneNumber' },
+			{ title: 'User Category', field: 'UserCategory' },
+			{ title: 'PhoneNumber', field: 'PhoneNumber' },
+
+			{ title: 'Registration Date', field: 'RegistrationDate', type: 'numeric' }
+		]
 	};
 	componentDidMount = async () => {
 		var meterRequest = {
@@ -31,120 +58,118 @@ export class MainTable extends Component {
 	render() {
 		if (this.state.meterData != null) {
 			return (
-				<MaterialTable
-					title='Smart Meters'
-					columns={[
-						{ title: 'ID', field: 'ID' },
-						{ title: 'Surname', field: 'Surname' },
-						{ title: 'Name', field: 'Name' },
-						{ title: 'Region', field: 'Region' },
-						{ title: 'City', field: 'City' },
-						{ title: 'Constituency ', field: 'Constituency' },
-						{ title: 'Street Name', field: 'StreetName' },
-						{ title: 'ErfNumber ', field: 'ErfNumber' },
-						{ title: 'Meter  Number ', field: 'MeterNumber' },
-						{ title: 'Phone Number', field: 'PhoneNumber' },
-						{ title: 'User Category', field: 'UserCategory' },
-						{ title: 'PhoneNumber', field: 'PhoneNumber' },
+				<div>
+					<Grid container direction='column' justify='space-evenly' alignItems='stretch'>
+						<Grid item lg={12} md={10} xl={12} xs={12}>
+							<UserToolbar />
+							<MaterialTable
+								className={makeStyles.root}
+								title='Smart Meters'
+								columns={[
+									{ title: 'ID', field: 'ID' },
+									{ title: 'Surname', field: 'Surname' },
+									{ title: 'Name', field: 'Name' },
+									{ title: 'Region', field: 'Region' },
+									{ title: 'City', field: 'City' },
+									{ title: 'Constituency ', field: 'Constituency' },
+									{ title: 'Street Name', field: 'StreetName' },
+									{ title: 'ErfNumber ', field: 'ErfNumber' },
+									{ title: 'Meter  Number ', field: 'MeterNumber' },
+									{ title: 'Phone Number', field: 'PhoneNumber' },
+									{ title: 'User Category', field: 'UserCategory' },
+									{ title: 'PhoneNumber', field: 'PhoneNumber' },
 
-						{ title: 'Registration Date', field: 'RegistrationDate', type: 'numeric' }
-					]}
-					data={this.state.meterData}
-					editable={{
-						onRowAdd: (newData) =>
-							new Promise((resolve) => {
-								setTimeout(() => {
-									resolve();
-									this.setState((prevState) => {
-										const data = [ ...prevState.data ];
-										data.push(newData);
-										return { ...prevState, data };
-									});
-								}, 600);
-							}),
-						onRowUpdate: (newData, oldData) =>
-							new Promise((resolve) => {
-								setTimeout(() => {
-									resolve();
-									if (oldData) {
-										this.setState((prevState) => {
-											const data = [ ...prevState.data ];
-											data[data.indexOf(oldData)] = newData;
-											return { ...prevState, data };
-										});
-									}
-								}, 600);
-							}),
-						onRowDelete: (oldData) =>
-							new Promise((resolve) => {
-								setTimeout(() => {
-									resolve();
-									this.setState((prevState) => {
-										const data = [ ...prevState.data ];
-										data.splice(data.indexOf(oldData), 1);
-										return { ...prevState, data };
-									});
-								}, 600);
-							})
-					}}
-				/>
+									{ title: 'Registration Date', field: 'RegistrationDate', type: 'numeric' }
+								]}
+								data={this.state.meterData}
+								editable={{
+									onRowAdd: (newData) =>
+										new Promise((resolve) => {
+											setTimeout(() => {
+												resolve();
+												this.setState((prevState) => {
+													const data = [ ...prevState.data ];
+													data.push(newData);
+													return { ...prevState, data };
+												});
+											}, 600);
+										}),
+									onRowUpdate: (newData, oldData) =>
+										new Promise((resolve) => {
+											setTimeout(() => {
+												resolve();
+												if (oldData) {
+													this.setState((prevState) => {
+														const data = [ ...prevState.data ];
+														data[data.indexOf(oldData)] = newData;
+														return { ...prevState, data };
+													});
+												}
+											}, 600);
+										}),
+									onRowDelete: (oldData) =>
+										new Promise((resolve) => {
+											setTimeout(() => {
+												resolve();
+												this.setState((prevState) => {
+													const data = [ ...prevState.data ];
+													data.splice(data.indexOf(oldData), 1);
+													return { ...prevState, data };
+												});
+											}, 600);
+										})
+								}}
+							/>
+						</Grid>
+					</Grid>
+				</div>
 			);
 		}
 		{
 			return (
-				<MaterialTable
-					title='Smart Meters'
-					columns={[
-						{ title: 'Name', field: 'name' },
-						{ title: 'Surname', field: 'surname' },
-						{ title: 'Region', field: 'region' },
-						{ title: 'City', field: 'city' },
-						{ title: 'Constituency', field: 'constituency' },
-						{ title: 'Street Name ', field: 'streetName ' },
-						{ title: 'Erf Number ', field: 'ErfNumber ' },
-						{ title: 'Meter Number ', field: 'meterNumber' },
-						{ title: 'Meter Phone Number ', field: 'meterPhoneNumber' },
-						{ title: 'User Category ', field: 'userCategory' },
-						{ title: 'Registration Date', field: 'registrationData', type: 'numeric' }
-					]}
-					editable={{
-						onRowAdd: (newData) =>
-							new Promise((resolve) => {
-								setTimeout(() => {
-									resolve();
-									this.setState((prevState) => {
-										const data = [ ...prevState.data ];
-										data.push(newData);
-										return { ...prevState, data };
-									});
-								}, 600);
-							}),
-						onRowUpdate: (newData, oldData) =>
-							new Promise((resolve) => {
-								setTimeout(() => {
-									resolve();
-									if (oldData) {
+				<div>
+					<MaterialTable
+						title='Smart Meters'
+						columns={this.state.ColumData}
+						editable={{
+							onRowAdd: (newData) =>
+								new Promise((resolve) => {
+									setTimeout(() => {
+										resolve();
 										this.setState((prevState) => {
 											const data = [ ...prevState.data ];
-											data[data.indexOf(oldData)] = newData;
+											data.push(newData);
 											return { ...prevState, data };
 										});
-									}
-								}, 600);
-							}),
-						onRowDelete: (oldData) =>
-							new Promise((resolve) => {
-								setTimeout(() => {
-									resolve();
-									this.setState((prevState) => {
-										const data = [ ...prevState.data ];
-										data.splice(data.indexOf(oldData), 1);
-										return { ...prevState, data };
-									});
-								}, 600);
-							})
-					}}
-				/>
+									}, 600);
+								}),
+							onRowUpdate: (newData, oldData) =>
+								new Promise((resolve) => {
+									setTimeout(() => {
+										resolve();
+										if (oldData) {
+											this.setState((prevState) => {
+												const data = [ ...prevState.data ];
+												data[data.indexOf(oldData)] = newData;
+												return { ...prevState, data };
+											});
+										}
+									}, 600);
+								}),
+							onRowDelete: (oldData) =>
+								new Promise((resolve) => {
+									setTimeout(() => {
+										resolve();
+										this.setState((prevState) => {
+											const data = [ ...prevState.data ];
+											data.splice(data.indexOf(oldData), 1);
+											return { ...prevState, data };
+										});
+									}, 600);
+								})
+						}}
+					/>
+				</div>
 			);
 		}
 	}

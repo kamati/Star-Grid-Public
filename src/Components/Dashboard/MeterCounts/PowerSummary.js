@@ -48,7 +48,7 @@ const PowerSummary = (props) => {
 					</Grid>
 					<Grid item>
 						<Avatar className={classes.avatar}>
-							<InsertChartIcon className={classes.icon} />
+							<img src={'/Logo_burned.png'} className='photo' />
 						</Avatar>
 					</Grid>
 				</Grid>

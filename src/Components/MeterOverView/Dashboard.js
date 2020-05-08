@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { mainListItems } from './listItems';
-import Home from '../home';
+import Home from '../Maps/home';
 import Routing from './PropertiesManager/Routing';
 
 const drawerWidth = 40;
