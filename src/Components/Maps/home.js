@@ -130,7 +130,7 @@ function Map() {
 				))}
 			{selectedMeter && (
 				<InfoWindow position={{ lat: parseFloat(selectedMeter.Longitude), lng: parseFloat(selectedMeter.Lat) }}>
-					<MapCard />
+					<MapCard MeterProfile={selectedMeter} />
 				</InfoWindow>
 			)}
 		</GoogleMap>

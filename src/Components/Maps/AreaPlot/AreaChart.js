@@ -12,7 +12,8 @@ import { data, options } from './Chart';
 const useStyles = makeStyles(() => ({
 	root: {},
 	chartContainer: {
-		height: 200,
+		height: 160,
+		width: 360,
 		position: 'relative'
 	},
 	actions: {
@@ -26,8 +27,15 @@ const AreaChart = (props) => {
 	const classes = useStyles();
 
 	return (
-		<div className={classes.chartContainer}>
-			<Bar data={data} options={options} />
+		<div {...rest} className={clsx(classes.root, className)}>
+			<h6> Meter Weekly Power Consuption </h6>
+			<Divider />
+			<CardContent>
+				<div className={classes.chartContainer}>
+					<Bar data={data} options={options} />
+				</div>
+			</CardContent>
+			<Divider />
 		</div>
 	);
 };

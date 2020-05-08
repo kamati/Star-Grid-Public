@@ -13,7 +13,7 @@ import { mainListItems } from './listItems';
 import Home from '../Maps/home';
 import Routing from './PropertiesManager/Routing';
 
-const drawerWidth = 40;
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -119,10 +119,8 @@ export default function Dashboard() {
 			</Drawer>
 
 			<main className={classes.content}>
-				<Container className={classes.container}>
-					<Grid container spacing={4}>
-						<Routing />
-					</Grid>
+				<Container maxWidth='lg' className={classes.container}>
+					<Routing />
 				</Container>
 			</main>
 		</div>

@@ -8,32 +8,39 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import AreaCharts from './AreaPlot/AreaChart';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
 	root: {
-		maxWidth: 345
+		maxWidth: 545
 	},
 	media: {
 		height: 140
 	}
 });
 
-export default function MediaCard() {
+export default function MediaCard(props) {
 	const classes = useStyles();
 
 	return (
 		<Card className={classes.root}>
-			<CardContent>
+			<CardContent className={classes.root}>
 				<AreaCharts />
 				<Typography variant='body2' color='textSecondary' component='p'>
-					<div>Kamati Hasheela</div>
-					<div>Meter Number:12323234234234</div>
+					<div>Meter Number: {props.MeterProfile.meterNumber}</div>
+					<div> User Name: Kamati Hasheela</div>
 				</Typography>
 			</CardContent>
 
 			<CardActions>
 				<Button size='small' color='primary'>
-					Meter Profile
+					<Link
+						to={{
+							pathname: `/MeterProps/${props.MeterProfile.meterNumber}`,
+							state: { meter: props.MeterProfile.meterNumber }
+						}}>
+						Meter Profile
+					</Link>
 				</Button>
 				<Button size='small' color='primary'>
 					Grid Profile
