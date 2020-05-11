@@ -9,7 +9,7 @@ import Networking from './Networking';
 
 const Routing = () => (
 	<Switch>
-		<Route exact path='/MeterProps/' component={Orders} />
+		<Route path='/MeterProps' component={DataOverview} />
 		<Route exact path='/MeterProps/TransactionHistory' component={TransactionHistory} />
 		<Route exact path='/MeterProps/Controls' component={Controls} />
 		<Route exact path='/MeterProps/DataOverview' component={DataOverview} />

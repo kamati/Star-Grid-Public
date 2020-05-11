@@ -5,6 +5,24 @@ import mapStyles from '../../Data/mapStyles';
 import GeolocationData from '../GeolocationData';
 import GridTopology from '../gridTopology';
 import MapCard from './MapCard';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		display: 'flex'
+	},
+	container: {
+		paddingTop: theme.spacing(1),
+		paddingBottom: theme.spacing(1)
+	},
+	content: {
+		flexGrow: 1,
+		height: '80vh',
+		overflow: 'auto'
+	}
+}));
 
 const useFetch = (url) => {
 	const [ meterData, setMeterdata ] = useState(null);
@@ -123,13 +141,17 @@ function Map() {
 							}}
 							icon={{
 								url: './Capture_burned.svg',
-								scaledSize: new window.google.maps.Size(35, 35)
+								scaledSize: new window.google.maps.Size(20, 20)
 							}}
 						/>
 					</div>
 				))}
 			{selectedMeter && (
-				<InfoWindow position={{ lat: parseFloat(selectedMeter.Longitude), lng: parseFloat(selectedMeter.Lat) }}>
+				<InfoWindow
+					position={{ lat: parseFloat(selectedMeter.Longitude), lng: parseFloat(selectedMeter.Lat) }}
+					onCloseClick={() => {
+						setSelectedMeter(null);
+					}}>
 					<MapCard MeterProfile={selectedMeter} />
 				</InfoWindow>
 			)}
@@ -141,16 +163,20 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export class Home extends Component {
 	render() {
 		return (
-			<div>
-				<WrappedMap
-					googleMapURL={
-						'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
-					}
-					loadingElement={<div style={{ height: `100%` }} />}
-					containerElement={<div style={{ height: `85vh` }} />}
-					mapElement={<div style={{ height: `85vh` }} />}
-				/>
-			</div>
+			<main className={useStyles.content}>
+				<Container className={useStyles.container}>
+					<div>
+						<WrappedMap
+							googleMapURL={
+								'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
+							}
+							loadingElement={<div style={{ height: `100%` }} />}
+							containerElement={<div style={{ height: `85vh` }} />}
+							mapElement={<div style={{ height: `85vh` }} />}
+						/>
+					</div>
+				</Container>
+			</main>
 		);
 	}
 }
