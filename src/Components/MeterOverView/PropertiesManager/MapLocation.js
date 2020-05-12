@@ -1,13 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, Polyline } from 'react-google-maps';
-import * as parkData from '../../Data/skateboard-parks.json';
-import mapStyles from '../../Data/mapStyles';
-import GeolocationData from '../GeolocationData';
-import GridTopology from '../gridTopology';
-import MapCard from './MapCard';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -60,12 +54,12 @@ function Map() {
 
 	return (
 		<GoogleMap
-			defaultZoom={17}
+			defaultZoom={19}
 			defaultCenter={{ lat: -22.560282, lng: 17.069457 }}
 			defaultOptions={{
-				scrollwheel: true,
+				scrollwheel: false,
 				zoomControl: true,
-
+				mapTypeId: 'satellite',
 				styles: [
 					{
 						featureType: 'water',
@@ -140,28 +134,20 @@ function Map() {
 							onClick={() => {
 								setSelectedMeter(meter);
 							}}
-							icon={{
-								url: './Capture_burned.svg',
-								scaledSize: new window.google.maps.Size(20, 20)
-							}}
 						/>
 					</div>
 				))}
 			{selectedMeter && (
 				<InfoWindow
 					position={{ lat: parseFloat(selectedMeter.Longitude), lng: parseFloat(selectedMeter.Lat) }}
-					onCloseClick={() => {
-						setSelectedMeter(null);
-					}}>
-					<MapCard MeterProfile={selectedMeter} />
-				</InfoWindow>
+				/>
 			)}
 		</GoogleMap>
 	);
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
-export class Home extends Component {
+export class MapLocation extends Component {
 	render() {
 		return (
 			<main className={useStyles.content}>
@@ -172,8 +158,8 @@ export class Home extends Component {
 								'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
 							}
 							loadingElement={<div style={{ height: `100%` }} />}
-							containerElement={<div style={{ height: `85vh` }} />}
-							mapElement={<div style={{ height: `85vh` }} />}
+							containerElement={<div style={{ height: `45vh` }} />}
+							mapElement={<div style={{ height: `45vh` }} />}
 						/>
 					</div>
 				</Container>
@@ -182,4 +168,4 @@ export class Home extends Component {
 	}
 }
 
-export default Home;
+export default MapLocation;

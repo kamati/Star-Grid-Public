@@ -37,7 +37,7 @@ export default function MediaCard(props) {
 					<Link
 						to={{
 							pathname: `/MeterProps/${props.MeterProfile.meterNumber}`,
-							state: { meter: props.MeterProfile.meterNumber }
+							state: { meter: props.MeterProfile }
 						}}>
 						Meter Profile
 					</Link>
