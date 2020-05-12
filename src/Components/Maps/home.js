@@ -33,14 +33,11 @@ const useFetch = (url) => {
 				key: 'StartGRID2020',
 				SQLQuery: `SELECT * FROM  MeterLocation`
 			};
-			const request = new Request(
-				`https://cors-anywhere.herokuapp.com/https://stargridx.net/MeterGeolocation.php`,
-				{
-					method: 'POST',
-					headers: { 'Content-type': 'application/json' },
-					body: JSON.stringify(resquestType)
-				}
-			);
+			const request = new Request(`https://stargridx.net/MeterGeolocation.php`, {
+				method: 'POST',
+				headers: { 'Content-type': 'application/json' },
+				body: JSON.stringify(resquestType)
+			});
 			const api_call = await fetch(request);
 			const data = await api_call.json();
 			setMeterdata(data.Server_response);
