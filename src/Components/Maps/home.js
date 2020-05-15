@@ -170,8 +170,8 @@ export class Home extends Component {
 								'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
 							}
 							loadingElement={<div style={{ height: `100%` }} />}
-							containerElement={<div style={{ height: `85vh` }} />}
-							mapElement={<div style={{ height: `85vh` }} />}
+							containerElement={<div style={{ height: `100vh` }} />}
+							mapElement={<div style={{ height: `100%` }} />}
 						/>
 					</div>
 				</Container>

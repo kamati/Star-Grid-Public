@@ -159,7 +159,7 @@ export class MapLocation extends Component {
 							}
 							loadingElement={<div style={{ height: `100%` }} />}
 							containerElement={<div style={{ height: `95vh` }} />}
-							mapElement={<div style={{ height: `80vh` }} />}
+							mapElement={<div style={{ height: `58vh` }} />}
 						/>
 					</div>
 				</Container>
