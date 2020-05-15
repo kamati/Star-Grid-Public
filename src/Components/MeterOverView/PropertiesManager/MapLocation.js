@@ -150,7 +150,7 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export class MapLocation extends Component {
 	render() {
 		return (
-			<main className={useStyles.content}>
+			<main>
 				<Container>
 					<div>
 						<WrappedMap
@@ -158,8 +158,8 @@ export class MapLocation extends Component {
 								'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
 							}
 							loadingElement={<div style={{ height: `100%` }} />}
-							containerElement={<div style={{ height: `45vh` }} />}
-							mapElement={<div style={{ height: `45vh` }} />}
+							containerElement={<div style={{ height: `95vh` }} />}
+							mapElement={<div style={{ height: `80vh` }} />}
 						/>
 					</div>
 				</Container>

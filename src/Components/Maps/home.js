@@ -14,13 +14,14 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex'
 	},
 	container: {
-		paddingTop: theme.spacing(1),
-		paddingBottom: theme.spacing(1)
+		paddingTop: theme.spacing(4),
+		paddingBottom: theme.spacing(4)
 	},
 	content: {
 		flexGrow: 1,
-		height: '100vh',
-		overflow: 'auto'
+		height: '95vh',
+		overflow: 'auto',
+		paddingTop: theme.spacing(2)
 	}
 }));
 
@@ -161,7 +162,7 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export class Home extends Component {
 	render() {
 		return (
-			<main className={useStyles.content}>
+			<main className={useStyles.container}>
 				<Container>
 					<div>
 						<WrappedMap

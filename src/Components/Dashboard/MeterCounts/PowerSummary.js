@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Card, CardContent, Grid, Typography, Avatar, LinearProgress } from '@material-ui/core';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
+import img2 from './map_icon_red.png';
 
 const useStyles = makeStyles((theme) => ({
+	photo: {
+		height: '50px',
+		width: '50px'
+	},
 	root: {
-		height: '100%'
+		height: '99%'
 	},
 	content: {
 		alignItems: 'center',
@@ -48,7 +53,7 @@ const PowerSummary = (props) => {
 					</Grid>
 					<Grid item>
 						<Avatar className={classes.avatar}>
-							<img src={'/Logo_burned.png'} className='photo' />
+							<img src={img2} className={classes.photo} />
 						</Avatar>
 					</Grid>
 				</Grid>

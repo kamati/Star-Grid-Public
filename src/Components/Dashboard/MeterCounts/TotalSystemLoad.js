@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Card, CardContent, Grid, Typography, Avatar, LinearProgress } from '@material-ui/core';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
+import img2 from './map_icon_gray.png';
 
 const useStyles = makeStyles((theme) => ({
+	photo: {
+		height: '50px',
+		width: '50px'
+	},
 	root: {
-		height: '100%'
+		height: '99%'
 	},
 	content: {
 		alignItems: 'center',
@@ -30,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 		//marginTop: theme.spacing(3)
 	}
 }));
-
 const TotalSystemLoad = (props) => {
 	const { className, ...rest } = props;
 
@@ -48,7 +52,7 @@ const TotalSystemLoad = (props) => {
 					</Grid>
 					<Grid item>
 						<Avatar className={classes.avatar}>
-							<InsertChartIcon className={classes.icon} />
+							<img src={img2} className={classes.photo} />
 						</Avatar>
 					</Grid>
 				</Grid>
