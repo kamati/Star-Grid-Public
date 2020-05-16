@@ -71,7 +71,6 @@ export default class FormMeter extends Component {
 							name='Region'
 							label='Region'
 							value={this.state.Region}
-							fullWidth
 							onChange={(e) => this.Change(e)}
 						/>
 					</Grid>
@@ -82,7 +81,6 @@ export default class FormMeter extends Component {
 							id='City'
 							name='City'
 							label='City'
-							fullWidth
 							onChange={(e) => this.Change(e)}
 						/>
 					</Grid>

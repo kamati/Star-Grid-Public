@@ -12,6 +12,7 @@ import ActiveMeters from './MeterCounts/ActiveMeters';
 import TotalMeters from './MeterCounts/TotalMeters';
 import TotalSystemLoad from './MeterCounts/TotalSystemLoad';
 import AreaCharts from './AreaPlot/AreaChart';
+import WarningTables from './Tables/WarningTables';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -35,15 +36,12 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		overflow: 'auto',
 		flexDirection: 'column'
-	},
-	fixedHeight: {
-		height: 440
 	}
 }));
 
 export default function Dashboard() {
 	const classes = useStyles();
-	const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
 	return (
 		<div>
 			<Grid container spacing={1}>
@@ -60,17 +58,18 @@ export default function Dashboard() {
 					<TotalSystemLoad />
 				</Grid>
 
-				<Grid item lg={12} md={12} xl={12} xs={12}>
+				<Grid item lg={6} md={10} xl={6} xs={12}>
 					<Paper>
-						<Home />
+						<AreaCharts />
 					</Paper>
 				</Grid>
 
-				<Grid item lg={12} md={10} xl={12} xs={12}>
-					<SystemChart />
+				<Grid item lg={6} md={10} xl={6} xs={12}>
+					<WarningTables />
 				</Grid>
+
 				<Grid item lg={12} md={12} xl={12} xs={12}>
-					<AreaCharts />
+					<SystemChart />
 				</Grid>
 			</Grid>
 		</div>

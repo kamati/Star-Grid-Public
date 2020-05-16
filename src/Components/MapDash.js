@@ -11,8 +11,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { mainListItems, SecondaryListItems } from './listItems';
 import MapRouting from './MapRouting';
 
-import Home from './Maps/home';
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -119,10 +117,9 @@ export default function MapDash() {
 				<List>{mainListItems}</List>
 				<Divider />
 				<Divider />
-				<List>{SecondaryListItems}</List>
 			</Drawer>
 			<main className={classes.content}>
-				<Container maxWidth='lg' className={classes.container}>
+				<Container maxWidth='xl' className={classes.container}>
 					<MapRouting />
 				</Container>
 			</main>

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	content: {
 		flexGrow: 1,
-		height: '95vh',
+		height: 440,
 		overflow: 'auto',
 		paddingTop: theme.spacing(2)
 	}
@@ -58,11 +58,12 @@ function Map() {
 
 	return (
 		<GoogleMap
-			defaultZoom={17}
+			defaultZoom={15}
 			defaultCenter={{ lat: -22.560282, lng: 17.069457 }}
 			defaultOptions={{
 				scrollwheel: true,
 				zoomControl: true,
+				mapTypeId: 'satellite',
 
 				styles: [
 					{
@@ -139,7 +140,7 @@ function Map() {
 								setSelectedMeter(meter);
 							}}
 							icon={{
-								url: './Capture_burned.svg',
+								url: require('./map_icon_gray.png'),
 								scaledSize: new window.google.maps.Size(20, 20)
 							}}
 						/>
@@ -162,19 +163,17 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export class Home extends Component {
 	render() {
 		return (
-			<main className={useStyles.container}>
-				<Container>
-					<div>
-						<WrappedMap
-							googleMapURL={
-								'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
-							}
-							loadingElement={<div style={{ height: `100%` }} />}
-							containerElement={<div style={{ height: `100vh` }} />}
-							mapElement={<div style={{ height: `100%` }} />}
-						/>
-					</div>
-				</Container>
+			<main>
+				<Paper>
+					<WrappedMap
+						googleMapURL={
+							'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
+						}
+						loadingElement={<div style={{ height: `100%` }} />}
+						containerElement={<div style={{ height: `100vh` }} />}
+						mapElement={<div style={{ height: `100%` }} />}
+					/>
+				</Paper>
 			</main>
 		);
 	}
