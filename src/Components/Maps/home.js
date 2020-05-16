@@ -63,7 +63,6 @@ function Map() {
 			defaultOptions={{
 				scrollwheel: true,
 				zoomControl: true,
-				mapTypeId: 'satellite',
 
 				styles: [
 					{
