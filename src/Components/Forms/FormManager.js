@@ -8,6 +8,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import DataBaseUpdate from './DataBaseUpdate';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -72,7 +73,7 @@ export default function FormManager() {
 			case 1:
 				return <InfromationReview MeterUser={User.fields} />;
 			case 2:
-				return <h1>Finish to confrim </h1>;
+				return <DataBaseUpdate MeterUser={User.fields} />;
 			default:
 				return 'Unknown stepIndex';
 		}
