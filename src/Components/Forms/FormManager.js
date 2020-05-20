@@ -9,6 +9,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import DataBaseUpdate from './DataBaseUpdate';
+import InfoTable from './InfoTable';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -58,7 +59,7 @@ export default function FormManager() {
 	const classes = useStyles();
 	const [ activeStep, setActiveStep ] = useState(0);
 	const [ User, setUser ] = useState({
-		Data: {}
+		data: []
 	});
 	const steps = getSteps();
 
@@ -71,9 +72,31 @@ export default function FormManager() {
 			case 0:
 				return <FormMeter onSubmit={(Fields) => onSubmit(Fields)} />;
 			case 1:
-				return <InfromationReview MeterUser={User.fields} />;
+				return (
+					<InfoTable
+						data={User.data}
+						header={[
+							{
+								name: 'First Name',
+								prop: 'FirstName'
+							},
+							{
+								name: 'Last Name',
+								prop: 'lastName'
+							},
+							{
+								name: 'City',
+								prop: 'City'
+							},
+							{
+								name: 'Erf Number',
+								prop: 'ErfNumber'
+							}
+						]}
+					/>
+				);
 			case 2:
-				return <DataBaseUpdate MeterUser={User.fields} />;
+				return <InfromationReview MeterUser={User.fields} />;
 			default:
 				return 'Unknown stepIndex';
 		}
@@ -89,7 +112,7 @@ export default function FormManager() {
 
 	const onSubmit = (fields) => {
 		//console.log('Frommanget Fiels:', fields);
-		setUser({ fields });
+		setUser({ data: [ ...User.data, fields ] });
 	};
 
 	return (
