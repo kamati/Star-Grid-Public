@@ -118,33 +118,66 @@ function Map() {
 				]
 			}}>
 			{meterData != null &&
-				meterData.map((meter) => (
-					<div>
-						<Polyline
-							path={[
-								{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) },
-								{ lat: parseFloat(meter.pLat), lng: parseFloat(meter.pLng) }
-							]}
-							geodesic={true}
-							options={{
-								strokeColor: '#ff2527',
-								strokeOpacity: 0.75,
-								strokeWeight: 2
-							}}
-						/>
-						<Marker
-							key={meter.lng}
-							position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
-							onClick={() => {
-								setSelectedMeter(meter);
-							}}
-							icon={{
-								url: require('./map_icon_gray.png'),
-								scaledSize: new window.google.maps.Size(20, 20)
-							}}
-						/>
-					</div>
-				))}
+				meterData.map((meter) => {
+					console.log('home status3', meter.status);
+					if (parseInt(meter.Status) == 1) {
+						return (
+							<div>
+								<Polyline
+									path={[
+										{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) },
+										{ lat: parseFloat(meter.pLat), lng: parseFloat(meter.pLng) }
+									]}
+									geodesic={true}
+									options={{
+										strokeColor: '#ff2527',
+										strokeOpacity: 0.75,
+										strokeWeight: 2
+									}}
+								/>
+								<Marker
+									key={meter.lng}
+									position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
+									onClick={() => {
+										setSelectedMeter(meter);
+									}}
+									icon={{
+										url: require('./map_icon_red.png'),
+										scaledSize: new window.google.maps.Size(20, 20)
+									}}
+								/>
+							</div>
+						);
+					} else {
+						return (
+							<div>
+								<Polyline
+									path={[
+										{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) },
+										{ lat: parseFloat(meter.pLat), lng: parseFloat(meter.pLng) }
+									]}
+									geodesic={true}
+									options={{
+										strokeColor: '#ff2527',
+										strokeOpacity: 0.75,
+										strokeWeight: 2
+									}}
+								/>
+								<Marker
+									key={meter.lng}
+									position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
+									onClick={() => {
+										setSelectedMeter(meter);
+									}}
+									icon={{
+										url: require('./map_icon_green.png'),
+										scaledSize: new window.google.maps.Size(20, 20)
+									}}
+								/>
+							</div>
+						);
+					}
+				})}
 			{selectedMeter && (
 				<InfoWindow
 					position={{ lat: parseFloat(selectedMeter.Longitude), lng: parseFloat(selectedMeter.Lat) }}
