@@ -158,6 +158,10 @@ input:-webkit-autofill {
 	height: 60px;
 	width: 60px;
 }
+.photo {
+	height: 60px;
+	width: 60px;
+}
 
 .header-color {
 	background-color: rgba(63, 63, 82, 0.795);

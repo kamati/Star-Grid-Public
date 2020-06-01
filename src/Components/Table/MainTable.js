@@ -66,7 +66,6 @@ export class MainTable extends Component {
 								className={makeStyles.root}
 								title='Smart Meters'
 								columns={[
-									{ title: 'ID', field: 'ID' },
 									{ title: 'Surname', field: 'Surname' },
 									{ title: 'Name', field: 'Name' },
 									{ title: 'Region', field: 'Region' },

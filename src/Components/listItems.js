@@ -25,7 +25,7 @@ export const mainListItems = (
 			<ListItemIcon>
 				<BarChartIcon />
 			</ListItemIcon>
-			<Link to='/MapDash/Grid'>Grid </Link>
+			<Link to='/MapDash/Grid'>Meter List </Link>
 		</ListItem>
 	</div>
 );

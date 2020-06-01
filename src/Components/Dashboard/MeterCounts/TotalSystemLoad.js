@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Card, CardContent, Grid, Typography, Avatar, LinearProgress } from '@material-ui/core';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
-import img2 from './map_icon_gray.png';
+import img2 from './electric.png';
 
 const useStyles = makeStyles((theme) => ({
 	photo: {
@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
 		width: 56
 	},
 	icon: {
-		height: 32,
-		width: 32
+		height: 38,
+		width: 38
 	},
 	progress: {
 		//marginTop: theme.spacing(3)
@@ -39,6 +39,9 @@ const TotalSystemLoad = (props) => {
 	const { className, ...rest } = props;
 
 	const classes = useStyles();
+	const handleBack = () => {
+		console.log('Linked the power button');
+	};
 
 	return (
 		<Card {...rest} className={clsx(classes.root, className)}>
@@ -52,7 +55,7 @@ const TotalSystemLoad = (props) => {
 					</Grid>
 					<Grid item>
 						<Avatar className={classes.avatar}>
-							<img src={img2} className={classes.photo} />
+							<img src={img2} className={classes.icon} onClick={handleBack} />
 						</Avatar>
 					</Grid>
 				</Grid>

@@ -32,7 +32,7 @@ const useFetch = (url) => {
 		async function fetchData() {
 			var resquestType = {
 				key: 'StartGRID2020',
-				SQLQuery: `SELECT * FROM  MeterLocation`
+				SQLQuery: `SELECT * FROM  MeterInfo2`
 			};
 			const request = new Request(`https://stargridx.net/MeterGeolocation.php`, {
 				method: 'POST',
@@ -53,7 +53,7 @@ const useFetch = (url) => {
 
 function Map() {
 	const [ selectedMeter, setSelectedMeter ] = useState(null);
-	const url = 'https://cors-anywhere.herokuapp.com/https://stargridx.net/MeterGeolocation.php';
+	const url = 'https://cors-anywhere.herokuapp.com/https://stargridx.net/MeterInfo2.php';
 	const { meterData } = useFetch(url);
 
 	return (
@@ -119,8 +119,8 @@ function Map() {
 			}}>
 			{meterData != null &&
 				meterData.map((meter) => {
-					console.log('home status3', meter.status);
-					if (parseInt(meter.Status) == 1) {
+					console.log('home status3', meter.Status);
+					if (meter.Status.localeCompare('Inactive')) {
 						return (
 							<div>
 								<Polyline
@@ -137,7 +137,7 @@ function Map() {
 								/>
 								<Marker
 									key={meter.lng}
-									position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
+									position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Latitute) }}
 									onClick={() => {
 										setSelectedMeter(meter);
 									}}
@@ -165,7 +165,7 @@ function Map() {
 								/>
 								<Marker
 									key={meter.lng}
-									position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
+									position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Latitute) }}
 									onClick={() => {
 										setSelectedMeter(meter);
 									}}
