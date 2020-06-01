@@ -9,9 +9,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import ReactEcharts from 'echarts-for-react';  
-import JSONPretty from 'react-json-pretty';
-import JSONPrettyMon from 'react-json-pretty/dist/monikai';
-import Tree, { TreeNode } from 'rc-tree';
 import './home.css';
 
 const useStyles = makeStyles((theme) => ({
