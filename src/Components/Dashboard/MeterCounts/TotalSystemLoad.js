@@ -8,8 +8,8 @@ import img2 from './electric.png';
 
 const useStyles = makeStyles((theme) => ({
 	photo: {
-		height: '55px',
-		width: '55px'
+		height: '45px',
+		width: '45px'
 	},
 	root: {
 		height: '99%'

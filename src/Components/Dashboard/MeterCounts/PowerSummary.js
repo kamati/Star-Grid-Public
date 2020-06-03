@@ -8,8 +8,8 @@ import img2 from './map_icon_red.png';
 
 const useStyles = makeStyles((theme) => ({
 	photo: {
-		height: '60px',
-		width: '60px'
+		height: '45px',
+		width: '45px'
 	},
 	root: {
 		height: '99%'
