@@ -34,7 +34,7 @@ export default function MeterInfromation(props) {
 		async function fetchData() {
 			var resquestType = {
 				key: 'StartGRID2020',
-				SQLQuery: `SELECT * FROM  UserDetails where MeterNumber='${props.selectedMeter.meter.meterNumber}'`
+				SQLQuery: `SELECT * FROM  UserDetails where MeterNumber='20206KPI41103T7k'`
 			};
 			const request = new Request(`https://stargridx.net/GetUserProfile.php`, {
 				method: 'POST',
@@ -70,7 +70,7 @@ export default function MeterInfromation(props) {
 								Meter Number
 							</Typography>
 							<Typography className={classes.title} color='textSecondary' gutterBottom>
-								{props.selectedMeter.meter.meterNumber}
+									20206KPI41103T7k
 							</Typography>
 						</Grid>
 

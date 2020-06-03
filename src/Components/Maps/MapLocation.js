@@ -1,28 +1,20 @@
 import React, { Component, useState, useEffect } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, Polyline } from 'react-google-maps';
-import * as parkData from '../../Data/skateboard-parks.json';
-import mapStyles from '../../Data/mapStyles';
-import GeolocationData from '../GeolocationData';
-import GridTopology from '../gridTopology';
-import MapCard from './MapCard';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
-
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		display: 'flex'
 	},
 	container: {
-		paddingTop: theme.spacing(4),
-		paddingBottom: theme.spacing(4)
+		paddingTop: theme.spacing(1),
+		paddingBottom: theme.spacing(1)
 	},
 	content: {
 		flexGrow: 1,
-		height: 440,
-		overflow: 'auto',
-		paddingTop: theme.spacing(2)
+		height: '100vh',
+		overflow: 'auto'
 	}
 }));
 
@@ -35,11 +27,14 @@ const useFetch = (url) => {
 				key: 'StartGRID2020',
 				SQLQuery: `SELECT * FROM  MeterLocation`
 			};
-			const request = new Request(`https://stargridx.net/MeterGeolocation.php`, {
-				method: 'POST',
-				headers: { 'Content-type': 'application/json' },
-				body: JSON.stringify(resquestType)
-			});
+			const request = new Request(
+				`https://cors-anywhere.herokuapp.com/https://stargridx.net/MeterGeolocation.php`,
+				{
+					method: 'POST',
+					headers: { 'Content-type': 'application/json' },
+					body: JSON.stringify(resquestType)
+				}
+			);
 			const api_call = await fetch(request);
 			const data = await api_call.json();
 			setMeterdata(data.Server_response);
@@ -54,17 +49,17 @@ const useFetch = (url) => {
 
 function Map() {
 	const [ selectedMeter, setSelectedMeter ] = useState(null);
-	const url = 'https://cors-anywhere.herokuapp.com/https://stargridx.net/MeterInfo2.php';
+	const url = 'https://cors-anywhere.herokuapp.com/https://stargridx.net/MeterGeolocation.php';
 	const { meterData } = useFetch(url);
 
 	return (
 		<GoogleMap
-			defaultZoom={15}
+			defaultZoom={19}
 			defaultCenter={{ lat: -22.560282, lng: 17.069457 }}
 			defaultOptions={{
-				scrollwheel: true,
+				scrollwheel: false,
 				zoomControl: true,
-
+				mapTypeId: 'satellite',
 				styles: [
 					{
 						featureType: 'water',
@@ -119,96 +114,58 @@ function Map() {
 				]
 			}}>
 			{meterData != null &&
-				meterData.map((meter) => {
-					console.log('home status3', meter.Status);
-					if (parseInt(meter.Status) ==1) {
-						return (
-							<div>
-								
-								<Polyline
-									path={[
-										{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) },
-										{ lat: parseFloat(meter.pLat), lng: parseFloat(meter.pLng) }
-									]}
-									geodesic={true}
-									options={{
-										strokeColor: '#ff2527',
-										strokeOpacity: 0.75,
-										strokeWeight: 2
-									}}
-								/>
-								<Marker
-									key={meter.lng}
-									position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
-									onClick={() => {
-										setSelectedMeter(meter);
-									}}
-									icon={{
-										url: require('./map_icon_green.png'),
-										scaledSize: new window.google.maps.Size(20, 20)
-									}}
-								/>
-							</div>
-						);
-					} else {
-						return (
-							<div>
-								<Polyline
-									path={[
-										{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) },
-										{ lat: parseFloat(meter.pLat), lng: parseFloat(meter.pLng) }
-									]}
-									geodesic={true}
-									options={{
-										strokeColor: '#ff2527',
-										strokeOpacity: 0.75,
-										strokeWeight: 2
-									}}
-								/>
-								<Marker
-									key={meter.lng}
-									position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
-									onClick={() => {
-										setSelectedMeter(meter);
-									}}
-									icon={{
-										url: require('./map_icon_red.png'),
-										scaledSize: new window.google.maps.Size(20, 20)
-									}}
-								/>
-							</div>
-						);
-					}
-				})}
+				meterData.map((meter) => (
+					<div>
+						<Polyline
+							path={[
+								{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) },
+								{ lat: parseFloat(meter.pLat), lng: parseFloat(meter.pLng) }
+							]}
+							geodesic={true}
+							options={{
+								strokeColor: '#ff2527',
+								strokeOpacity: 0.75,
+								strokeWeight: 2
+							}}
+						/>
+						<Marker
+							key={meter.lng}
+							position={{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) }}
+							onClick={() => {
+								setSelectedMeter(meter);
+							}}
+						/>
+					</div>
+				))}
 			{selectedMeter && (
 				<InfoWindow
 					position={{ lat: parseFloat(selectedMeter.Longitude), lng: parseFloat(selectedMeter.Lat) }}
-					onCloseClick={() => {
-						setSelectedMeter(null);
-					}}>
-					<MapCard MeterProfile={selectedMeter} />
-				</InfoWindow>
+				/>
 			)}
 		</GoogleMap>
 	);
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
-export class Home extends Component {
+export class MapLocation extends Component {
 	render() {
 		return (
-			<div>
-				<WrappedMap
-					googleMapURL={
-						'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
-					}
-					loadingElement={<div style={{ height: `100%` }} />}
-					containerElement={<div style={{ height: `100vh` }} />}
-					mapElement={<div style={{ height: `100%` }} />}
-				/>
-			</div>
+			<main>
+				<Container>
+					<div>
+						<WrappedMap
+							googleMapURL={
+								'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
+							}
+							loadingElement={<div style={{ height: `100%` }} />}
+							containerElement={<div style={{ height: `95vh` }} />}
+							mapElement={<div style={{ height: `58vh` }} />}
+						/>
+					</div>
+				</Container>
+			</main>
 		);
 	}
 }
 
-export default Home;
+export default MapLocation;

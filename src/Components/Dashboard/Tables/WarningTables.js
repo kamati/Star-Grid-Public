@@ -12,52 +12,46 @@ import TableRow from '@material-ui/core/TableRow';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 const columns = [
-	{ id: 'name', label: 'Name', minWidth: 170 },
-	{ id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
+	{ id: 'name', label: 'Meter Number', minWidth: 170 },
+	{ id: 'code', label: 'Alarm Type', minWidth: 100 },
 	{
 		id: 'population',
-		label: 'Population',
+		label: 'Time',
 		minWidth: 170,
 		align: 'right',
 		format: (value) => value.toLocaleString('en-US')
 	},
 	{
 		id: 'size',
-		label: 'Size\u00a0(km\u00b2)',
+		label: 'Time',
 		minWidth: 170,
 		align: 'right',
 		format: (value) => value.toLocaleString('en-US')
 	},
-	{
-		id: 'density',
-		label: 'Density',
-		minWidth: 170,
-		align: 'right',
-		format: (value) => value.toFixed(2)
-	}
+	
 ];
 
 function createData(name, code, population, size) {
 	const density = population / size;
-	return { name, code, population, size, density };
+	return { name, code, population };
 }
 
 const rows = [
-	createData('India', 'IN', 1324171354, 3287263),
-	createData('China', 'CN', 1403500365, 9596961),
-	createData('Italy', 'IT', 60483973, 301340),
-	createData('United States', 'US', 327167434, 9833520),
-	createData('Canada', 'CA', 37602103, 9984670),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-	createData('France', 'FR', 67022000, 640679),
-	createData('United Kingdom', 'GB', 67545757, 242495),
-	createData('Russia', 'RU', 146793744, 17098246),
-	createData('Nigeria', 'NG', 200962417, 923768),
-	createData('Brazil', 'BR', 210147125, 8515767)
+	createData('20206KPI41103T7k', 'Warning', "10:30"),
+	createData('20200W8XC19DAI7k', 'Error', "12:14"),
+	createData('2020U49AHXUEF27k', 'Failure ', "00.00"),
+	createData('202027G0DZGSAS7', 'Error', "3:00"),
+	createData('2020BQ71Z7JT8Z7k', 'Failure', "3:30"),
+	createData('2020QGBG1A9KNP7', 'Warning', "5:00"),
+	createData('2020J0B6VIKYIL7k', 'Warning', "5:30"),
+	createData('20202FT62VHNON7k', 'Warning', "5:14"),
+	createData('2020X57HWX4B7R7', 'Error', "6:13"),
+	createData('2020NFD9MKZEV07', 'Error', "6:25"),
+	createData('2020GAJQFE5WFU7k', 'Error', "7:05"),
+	createData('2020QGBG1A9KNP7', 'Error', "8:16"),
+	createData('2020QGBG1A9KNP7', 'Error', "9:46"),
+	createData('2020QGBG1A9KNP7', 'Error', "10:36"),
+	createData('2020QGBG1A9KNP7', 'Error', "14:59")
 ];
 
 const useStyles = makeStyles({

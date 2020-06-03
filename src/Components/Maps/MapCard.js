@@ -27,7 +27,7 @@ export default function MediaCard(props) {
 			<CardContent className={classes.root}>
 				<AreaCharts />
 				<Typography variant='body2' color='textSecondary' component='p'>
-					<div>Meter Number: {props.MeterProfile.meterNumber}</div>
+					<div>Meter Number: {props.MeterProfile.MeterNumber}</div>
 					<div> User Name: Kamati Hasheela</div>
 				</Typography>
 			</CardContent>
@@ -36,7 +36,7 @@ export default function MediaCard(props) {
 				<Button size='small' color='primary'>
 					<Link
 						to={{
-							pathname: `/MeterProps/${props.MeterProfile.meterNumber}`,
+							pathname: `/MeterProps/${props.MeterProfile.MeterNumber}`,
 							state: { meter: props.MeterProfile }
 						}}>
 						Meter Profile
