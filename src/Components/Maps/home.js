@@ -8,6 +8,8 @@ import MapCard from './MapCard';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
+import ReactEcharts from 'echarts-for-react';  
+import './home.css';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -192,23 +194,112 @@ function Map() {
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
-export class Home extends Component {
-	render() {
-		return (
-			<main>
-				<Paper>
-					<WrappedMap
-						googleMapURL={
-							'https://maps.googleapis.com/maps/api/js?key=AIzaSyAX7CGyLu3H3AfDxa6-YOhGInraceFUiow&callback=initMap'
+
+const treeData = [
+	{
+	  key: '0-0',
+	  title: 'parent 1',
+	  children: [
+		{ key: '0-0-0', title: 'parent 1-1', children: [{ key: '0-0-0-0', title: 'parent 1-1-0' }] },
+		{
+		  key: '0-0-1',
+		  title: 'parent 1-2',
+		  children: [
+			{ key: '0-0-1-0', title: 'parent 1-2-0', disableCheckbox: true },
+			{ key: '0-0-1-1', title: 'parent 1-2-1' },
+			{ key: '0-0-1-2', title: 'parent 1-2-2' },
+			{ key: '0-0-1-3', title: 'parent 1-2-3' },
+			{ key: '0-0-1-4', title: 'parent 1-2-4' },
+			{ key: '0-0-1-5', title: 'parent 1-2-5' },
+			{ key: '0-0-1-6', title: 'parent 1-2-6' },
+			{ key: '0-0-1-7', title: 'parent 1-2-7' },
+			{ key: '0-0-1-8', title: 'parent 1-2-8' },
+			{ key: '0-0-1-9', title: 'parent 1-2-9' },
+			{ key: 1128, title: 1128 },
+		  ],
+		},
+	  ],
+	},
+  ];
+
+const Home = () => {
+
+	const  keyReplace = (obj, keyToReplace, valueToReplaceWith) => {
+		let str = JSON.stringify(obj);
+		str = str.replace(/"title"/g, '"name"');
+		return JSON.parse(str);
+	};
+	  
+
+	return (
+		<div>
+			<div className="container">
+				<ReactEcharts className="echarts"
+					option={{
+						tooltip: {
+							trigger: 'item',
+							triggerOn: 'mousemove'
+						},
+						legend: {
+							top: '2%',
+							left: '3%',
+							orient: 'vertical',
+							data: [{
+								name: 'sample tree',
+								icon: 'circle'
+							}],
+							borderColor: '#c23531'
+						},
+						series:[
+							{
+								type: 'tree',
+
+								name: 'sample tree',
+
+								data: keyReplace(treeData, "title", "name"),
+
+								top: '5%',
+								left: '10%',
+								bottom: '2%',
+								right: '60%',
+
+								symbolSize: 7,
+
+								label: {
+									position: 'left',
+									verticalAlign: 'middle',
+									align: 'right'
+								},
+
+								leaves: {
+									label: {
+										position: 'right',
+										verticalAlign: 'middle',
+										align: 'left'
+									}
+								},
+
+								expandAndCollapse: true,
+
+								animationDuration: 550,
+								animationDurationUpdate: 750
+
+							},
+						]
+					}}
+					notMerge={true}
+					lazyUpdate={true}
+					theme={"theme_name"}
+					opts={
+						{
+						
 						}
-						loadingElement={<div style={{ height: `100%` }} />}
-						containerElement={<div style={{ height: `100vh` }} />}
-						mapElement={<div style={{ height: `100%` }} />}
-					/>
-				</Paper>
-			</main>
-		);
-	}
-}
+
+					} 
+				/>
+			</div>
+		</div>
+	);
+};
 
 export default Home;
