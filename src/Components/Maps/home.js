@@ -3,12 +3,10 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, Polyline } 
 import * as parkData from '../../Data/skateboard-parks.json';
 import mapStyles from '../../Data/mapStyles';
 import GeolocationData from '../GeolocationData';
-import GridTopology from '../gridTopology';
+import GridTopology from '../GridTopology/gridTopology';
 import MapCard from './MapCard';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
-
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -121,10 +119,9 @@ function Map() {
 			{meterData != null &&
 				meterData.map((meter) => {
 					console.log('home status3', meter.Status);
-					if (parseInt(meter.Status) ==1) {
+					if (parseInt(meter.Status) == 1) {
 						return (
 							<div>
-								
 								<Polyline
 									path={[
 										{ lat: parseFloat(meter.Longitude), lng: parseFloat(meter.Lat) },

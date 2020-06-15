@@ -37,11 +37,6 @@ function DataOverview(props) {
 						<Livechart />
 					</Paper>
 				</Grid>
-				<Grid item lg={12} md={12} xl={12} xs={12}>
-					<Paper elevation={0}>
-						<TransactionHistory />
-					</Paper>
-				</Grid>
 			</Grid>
 		</div>
 	);

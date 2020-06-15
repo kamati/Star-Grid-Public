@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, Polyline } from 'react-google-maps';
-import GridTopology from '../gridTopology';
+import GridTopology from '../GridTopology/gridTopology';
 
 const useFetch = (url) => {
 	const [ meterData, setMeterdata ] = useState(null);
