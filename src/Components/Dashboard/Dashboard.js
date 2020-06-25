@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
 import Home from '../Maps/home';
 import SystemChart from './SystemChart';
+import ChartsE from './EChartBlocks/ChartsE';
 import Paper from '@material-ui/core/Paper';
 import clsx from 'clsx';
 import PowerSummary from './MeterCounts/PowerSummary';
@@ -69,7 +70,7 @@ export default function Dashboard() {
 				</Grid>
 
 				<Grid item lg={12} md={12} xl={12} xs={12}>
-					<SystemChart />
+					<ChartsE />
 				</Grid>
 			</Grid>
 		</div>

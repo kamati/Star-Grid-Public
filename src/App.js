@@ -31,7 +31,7 @@ function App() {
 							<Link to='/gridTopology'>Grid Topology</Link>
 							<Link to='/alarms'>Meter Notifications</Link>
 							<Link to='/FormMeter'>New Meter</Link>
-							<Link to='/systemSetting'>System Settings</Link>
+							<Link to='/SystemSetting/2'>System Settings</Link>
 						</Navigation>
 					</HeaderRow>
 				</Header>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import MapDash from './MapDash';
-import systemSetting from './systemSetting';
+import systemSetting from './SystemSettings/systemSetting';
 import Alarms from './Alarms/Alarms';
 import Dash from './GridTopology/Dash';
 import MeterProps from './MeterOverView/MeterProps';
@@ -11,7 +11,7 @@ const Main = () => (
 	<Switch>
 		<Route exact path='/' component={MapDash} />
 		<Route exact path='/gridTopology' component={Dash} />
-		<Route exact path='/systemSetting' component={systemSetting} />
+		<Route exact path='/SystemSetting/:id' component={systemSetting} />
 		<Route exact path='/alarms' component={Alarms} />
 		<Route exact path='/FormMeter' component={FormManager} />
 		<Route exact path='/MeterProps/:id' component={MeterProps} />
