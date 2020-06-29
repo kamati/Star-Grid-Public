@@ -11,8 +11,6 @@ var date = [];
 var data = [ Math.random() * 300 ];
 
 for (var i = 1; i < 20000; i++) {
-	var now = new Date((base += oneDay));
-
 	data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
 }
 function get(data) {}
